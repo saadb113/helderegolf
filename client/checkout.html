@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta charset="utf-8">
+    <title>Order | HeldereGolf</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+<link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@200;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <div class=" bg-dark text-light text-center d-flex align-items-center justify-content-center" style="height: 40px;">
+        Enjoy Free Shipping All Over Pakistan!
+    </div>
+    <div class="container-fluid sticky-top" style="    background-color: white !important;">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a href="index.html" class="navbar-brand">
+                    <h2 class="text-white"><img src="./img/HG.png" style="width: 200px;" alt=""></h2>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a href="/unstiched-collection" class="nav-item nav-link">Unstiched Collection </a>
+                        <a href="/stiched-collection" class="nav-item nav-link">Stiched Collection </a>
+                       
+                        <a href="/return" class="nav-item nav-link">Return </a>
+                        <a href="/contact" class="nav-item nav-link">Contact</a>
+                    </div>
+                    
+                </div>
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-primary mb-5"><span class="fw-light text-dark">Checkout</h1></div>
+            <div class="row g-5">
+                <div class="col-lg-7 wow fadeIn" data-wow-delay="0.1s">
+                    <p class="mb-4">Please enter all the details correctly to place your order. </p>
+                    <div class="wow fadeIn" data-wow-delay="0.3s">
+                        <form onsubmit="SubmitOrder(event)" >
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                        <label for="name">Your Name*</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input name="phone" type="text" class="form-control" id="number" placeholder="Phone Number" required>
+                                        <label for="email">Phone Number*</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input name="email" type="email" class="form-control" id="email" placeholder="Your Email" required > 
+                                        <label for="email">Your Email*</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input name="city" type="text" class="form-control" id="city" placeholder="City" required>
+                                        <label for="name" >City*</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input name="state" type="text" class="form-control" id="state" placeholder="State">
+                                        <label for="email">State</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input name="streetaddress" type="text" class="form-control"  placeholder="Street Address" required id="streetaddress">
+                                        <label for="subject" >Street Address*</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input name="postcode" type="text" class="form-control" id="zip" placeholder="Zip Code" value="">
+                                        <label for="name">Zip Code</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input name="coupon" type="text" class="form-control" id="" placeholder="Zip Code" value="">
+                                        <label for="name">Coupon (Optional)</label>
+                                    </div>
+                                </div>
+                                <input name="quantity" hidden type="text" value="1" class="quantityinput">
+                               
+                                
+                               
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea name="message" class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                        <label for="message">Any Note (Optional)</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Place Order</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 flex-column d-flex justify-content-start align-items-start" data-wow-delay="0.1s">
+                    <p style="font-weight: 600;">Order Summary</p>
+                    <div class="order-summary">
+                        <div class="items">
+
+                        </div>
+                        <div class="subtotal">
+                          <h6 class="d-flex justify-content-between">Subtotal: <div><span class="pricevalue">390</span> PKR</div></h6>
+                          <h6 class="d-flex justify-content-between">Shipping Cost: <span> 0 PKR</span></h6>
+                          <h6 class="d-flex justify-content-between">Payment Method: <span class="text-end">COD (Cash On Delivery)</span></h6>
+                        </div>
+                        <hr>
+                        <div >
+                          <h4 class="d-flex justify-content-between ">Total: <div ><span style="font-size: 24px;" class="total">439</span> PKR</div></h4>
+                        </div>
+                      </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    
+
+
+       <!-- Footer Start -->
+    <div class="container-fluid bg-white footer">
+        <div class="container py-5">
+            <div class="row g-5">
+                
+            
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                        <a href="index.html" class="navbar-brand">
+                        <img src="./img/HG.png" style="width: 200px;" alt="">
+                        </a>
+                    </div>
+                   <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; 2023 <a class="border-bottom" href="#">HeldereGolf</a>, All Right Reserved. powered by Codex
+
+                        <!-- /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> -->
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+
+    <!-- Order Summary  -->
+    <script>
+ const url = window.location.href;
+ let param;
+ let ProductId;
+ let size;
+ let quantity;
+ if(url.includes("-")){
+param = url.split("-")
+ProductId = param[1];
+size = param[2];
+quantity = param[3];
+ }
+
+
+
+let totalCartPricenum = 0.0
+
+        const totalCartPrice = document.querySelector(".total")
+        const subtotal= document.querySelector(".pricevalue")
+        totalCartPrice.innerHTML = totalCartPricenum
+const updateTotalCartPrice = (price) => {
+    totalCartPricenum += price
+    totalCartPrice.innerHTML = totalCartPricenum
+    subtotal.innerHTML = totalCartPricenum
+}
+
+
+let GetCartItem = JSON.parse(localStorage.getItem('cart')) || [];
+const items = document.querySelector(".items")
+
+function getCartItems() {
+    if(GetCartItem.length == 0){
+        items.innerHTML = "There Are No Items In Cart"
+    }else{
+        items.innerHTML = ""
+    }
+    const CartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    for (let index = 0; index < CartItems.length; index++) {
+
+        const element = CartItems[index];
+        const template = document.createElement("template")
+        template.innerHTML = `
+        <div class="product-info">
+            <div style="    position: relative;">
+               <p style="    padding: 0.1rem 0.8rem;
+    background: yellow;
+    position: absolute;
+    border-radius: 5rem;
+    font-weight: 500;
+    left: -20%;
+    top: -10%;
+">${element.quantity}</p>
+                <img class="product-img" src="${element.img}" alt="Product Image" style="    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+    background-color: grey;
+    border-radius: 10px;">
+                </div>
+            <div class="product-details">
+                            <h6 class="product-name">${element.name}</h6>
+                            
+                            <div>Price: <span class="pricevalue">${element.price}</span> PKR</div>
+                          </div>
+                        </div>
+`
+        updateTotalCartPrice(element.price * element.quantity)
+        items.appendChild(template.content.firstElementChild)
+    }
+
+}
+
+if(url.includes("-")){
+    fetch("/products")
+
+.then((response) => {
+  // Check if the response status code is in the range 200-299 (indicating success)
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  // Parse the response body as JSON
+  return response.json();
+})
+.then((data) => {
+    const topSelling =document.querySelector(".top-selling")
+    // console.log(param)
+    for (let index = 0; index < data.length; index++) {
+    const element = data[index];
+    
+    
+    
+    if(element.productId == parseInt(param[1])){
+        const template = document.createElement("template")
+        // console.log(element)
+        template.innerHTML = `
+        <div class="product-info">
+            <div style="    position: relative;">
+               <p style="    padding: 0.1rem 0.8rem;
+    background: yellow;
+    position: absolute;
+    border-radius: 5rem;
+    font-weight: 500;
+    left: -20%;
+    top: -10%;
+">${quantity}</p>
+                <img class="product-img" src="/Images/${element.img[0].filename}" alt="Product Image" style="    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+    background-color: grey;
+    border-radius: 10px;">
+                </div>
+            <div class="product-details">
+                            <h6 class="product-name">${element.title}</h6>
+                            
+                            <div>Price: <span class="pricevalue">${element.price}</span> PKR</div>
+                          </div>
+                        </div>
+`
+updateTotalCartPrice(element.price * quantity)
+        items.append(template.content.firstElementChild)
+console.log(items)
+        
+    }
+    
+ }
+  
+
+
+})
+.catch((error) => {
+  // Handle any errors that occurred during the fetch
+  console.error('Fetch error:', error);
+  throw error;
+});
+}else{
+    getCartItems()
+    // console.log("first")
+
+}
+
+
+
+    </script>
+
+
+<script>
+    
+
+
+
+
+
+
+
+const SubmitOrder = async (e)=>{
+    e.preventDefault()
+
+const name = document.querySelector("#name").value
+const phone = document.querySelector("#number").value
+const email = document.querySelector("#email").value
+const city = document.querySelector("#city").value
+const state = document.querySelector("#state").value
+const postcode = document.querySelector("#zip").value
+const streetaddress = document.querySelector("#streetaddress").value
+const message = document.querySelector("#message").value
+let order = JSON.parse(localStorage.getItem('cart')) || [];
+let cartProducts
+let requestBody
+console.log(order)
+order.forEach(element => {
+    requestBody[name] = element.name
+});
+if(url.includes("-")){
+    requestBody = {
+    PId : ProductId,
+    quantity,
+    size,
+    name,
+    phone,
+    email,
+    city,
+    state,
+    postcode,
+    streetaddress,
+    message
+  };
+}else{
+
+requestBody = {
+    PId : null,
+    quantity : null,
+    size : null,
+    order,
+    name,
+    phone,
+    email,
+    city,
+    state,
+    postcode,
+    streetaddress,
+    message
+  };
+}
+
+
+  const fetchApi = await fetch("/order", {
+    method : "POST",
+    headers : {
+        "Content-Type" : "application/json"
+    },
+    body : JSON.stringify(requestBody)
+  })
+//   console.log(fetchApi)
+if(fetchApi.status == 200){
+    // window.location.href = "/success-order"
+}else if(!fetchApi){
+    alert("Sorry! Unexpected Error. Check Your Internet Connection..")
+}
+}
+</script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <style>
+    /* Your existing styles for admin and statistics tabs can be placed here */
+
+    /* Common styles for panels and panel content */
+    .panels {
+      display: flex;
+      justify-content: space-between;
+      width: 475px;
+    margin: 2rem auto;
+      margin-bottom: 20px;
+    }
+
+    .panel {
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: #ccc;
+      border-radius: 8px;
+    }
+
+    .panel.active {
+      background-color: #f4f4f4;
+    }
+
+    .panel-content {
+      display: none;
+      width: 475px;
+    margin: auto;
+    }
+
+    .panel-content.active {
+      display: block;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 80%;
+      display: none;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative; /* Added for positioning the delete button */
+    }
+
+    .delete-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ff6b6b;
+      border: none;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: #ccc;
+      border-radius: 8px;
+    }
+
+    .tab.active {
+      background-color: #f4f4f4;
+    }
+
+    .tab-content {
+      display: none;
+    }
+    .tab-content .Orderscards,
+    .tab-content .reviewsCards,
+    .tab-content .contactCards{
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .card {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 10px;
+      }
+    .panel-content {
+    width: 350px;
+    }
+    .panels {
+        width: 350px;
+    }
+    }
+     .logout-button {
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: #ccc;
+      border-radius: 8px;
+      border: 0;
+    }
+    .visitorcontainer {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 80%;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .visitor-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .visitor-tab-button {
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: #ccc;
+      border: none;
+      border-radius: 20px; /* Adjust the border radius as needed */
+      margin-right: 10px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow */
+      transition: background-color 0.3s, box-shadow 0.3s; /* Add smooth transitions */
+    }
+
+    .visitor-tab-button.active {
+      background-color: #f4f4f4;
+      box-shadow: none; /* Remove shadow for active tab */
+    }
+
+    @media (max-width: 675px) {
+      .visitor-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .visitor-tab-button {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 80%; /* Adjust the width as needed */
+      }
+    }
+
+    #visitorTable {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #visitorTable th,
+    #visitorTable td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+
+<div id="mainAdmin">
+
+  <div class="panels">
+    <!-- Admin Panel Button -->
+    <div class="panel active" id="adminPanel">Admin</div>
+    <button class="logout-button" onclick="handleLogout()">Logout</button>
+    <div class="panel" id="statisticsPanel">Statistics</div>
+  </div>
+
+  <!-- Admin Panel Content -->
+  <div class="panel-content active" id="adminContent">
+    
+    <h1>Data Management</h1>
+    <div class="tabs">
+      <div class="tab active" id="ordersTab">Orders</div>
+      <div class="tab" id="reviewsTab">Reviews</div>
+      <div class="tab" id="contactsTab">Contacts</div>
+    </div>
+    <div class="tab-content active" id="ordersContent">
+      <h2>Orders Data</h2>
+      <div class="Orderscards">
+        <!-- Orders data will be dynamically added here -->
+      </div>
+    </div>
+    <div class="tab-content" id="reviewsContent">
+      <h2>Reviews Data</h2>
+      <div class="reviewsCards">
+        <!-- Reviews data will be dynamically added here -->
+      </div>
+    </div>
+    <div class="tab-content" id="contactsContent">
+      <h2>Contact Data</h2>
+      <div class="contactCards">
+        <!-- Contact data will be dynamically added here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistics Panel Content -->
+  <div class="panel-content" id="statisticsContent">
+    <div class="visitor-tabs">
+        <button class="visitor-tab-button active" data-route="home">Home</button>
+        <button class="visitor-tab-button" data-route="unstiched-collection">Unstiched</button>
+        <button class="visitor-tab-button" data-route="stiched-collection">Stiched</button>
+        <button class="visitor-tab-button" data-route="contact">Contact</button>
+        <button class="visitor-tab-button" data-route="return">Return</button>
+        <button class="visitor-tab-button" data-route="checkout">Checkout</button>
+        <button class="visitor-tab-button" data-route="product">Products</button>
+        <!-- Add more buttons for other routes -->
+      </div>
+    
+      <div class="visitorcontainer">
+        <table id="visitorTable">
+          <thead>
+            <tr>
+              <th>Page Name</th>
+              <th>View Count</th>
+              <th>Date/Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Visitor data will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
+  <script>
+    const password = "saadbhaizindabaad1"; // Replace with your desired passwor
+function handleLogout() {
+      localStorage.removeItem("loggedIn");
+      window.location.reload();
+    }
+      const loggedIn = localStorage.getItem("loggedIn");
+      console.log(loggedIn)
+   if (loggedIn === "true") {
+document.querySelector("#mainAdmin").style.display = "block"
+const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        tabContents.forEach(content => content.classList.remove('active'));
+        const contentId = tab.id.replace('Tab', 'Content');
+        document.getElementById(contentId).classList.add('active');
+      });
+    });
+
+
+    fetch('/allorder')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        const cards = document.querySelector('.Orderscards');
+        data.forEach(entry => {
+          const card = document.createElement('div');
+          card.classList.add('card');
+          card.innerHTML = `
+            <strong>Name:</strong> ${entry.name}<br>
+            <strong>Phone:</strong> ${entry.phone}<br>
+            <strong>Email:</strong> ${entry.email}<br>
+            <strong>State:</strong> ${entry.state}<br>
+            <strong>City:</strong> ${entry.city}<br>
+            <strong>Postcode:</strong> ${entry.postcode}<br>
+            <strong>Street Address:</strong> ${entry.streetaddress}<br>
+            <strong>Date:</strong> ${entry.date}<br>
+            <strong>Message:</strong> ${entry.message}
+            <button class="delete-button" onclick="deleteData('${entry._id}')">Delete</button>
+          `;
+          cards.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+
+    function deleteData(id) {
+      fetch(`/delete/${id}`, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Data deleted:', data);
+        location.reload(); // Refresh the page to reflect changes
+      })
+      .catch(error => {
+        console.error('Error deleting data:', error);
+      });
+    }
+
+
+    fetch('/allcontacts')
+      .then(response => response.json())
+      .then(contacts => {
+        const cards = document.querySelector('.contactCards');
+        console.log(cards)
+        contacts.forEach(contact => {
+          const card = document.createElement('div');
+          card.classList.add('card');
+          card.innerHTML = `
+            <strong>Name:</strong> ${contact.name}<br>
+            <strong>Email:</strong> ${contact.email}<br>
+            <strong>Subject:</strong> ${contact.subject}<br>
+            <strong>Message:</strong> ${contact.message}<br>
+            <strong>Date:</strong> ${new Date(contact.date).toLocaleString()}
+            <button class="delete-button" onclick="deleteContact('${contact._id}')">Delete</button>
+          `;
+          cards.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching contact data:', error);
+      });
+
+    function deleteContact(id) {
+      fetch(`/deletecontact/${id}`, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Contact deleted:', data);
+        location.reload(); // Refresh the page to reflect changes
+      })
+      .catch(error => {
+        console.error('Error deleting contact:', error);
+      });
+    }
+
+
+
+      fetch('/allreviews')
+      .then(response => response.json())
+      .then(reviews => {
+        const cards = document.querySelector('.reviewsCards');
+        reviews.forEach(review => {
+          const card = document.createElement('div');
+          card.classList.add('card');
+          card.innerHTML = `
+            <strong>Name:</strong> ${review.name}<br>
+            <strong>Rating:</strong> ${review.rating}<br>
+            <strong>Review:</strong> ${review.review}<br>
+            <button class="delete-button" onclick="deleteReview('${review._id}')">Delete</button>
+          `;
+          cards.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching reviews data:', error);
+      });
+
+    function deleteReview(id) {
+
+
+      fetch(`/deletereview/${id}`, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Review deleted:', data);
+        location.reload(); // Refresh the page to reflect changes
+      })
+      .catch(error => {
+        console.error('Error deleting review:', error);
+      });
+    }
+//  MAIN PANEL CODE 
+  const panels = document.querySelectorAll('.panel');
+    const panelContents = document.querySelectorAll('.panel-content');
+
+    panels.forEach(panel => {
+      panel.addEventListener('click', () => {
+        panels.forEach(p => p.classList.remove('active'));
+        panel.classList.add('active');
+
+        panelContents.forEach(content => content.classList.remove('active'));
+        const contentId = panel.id.replace('Panel', 'Content');
+        document.getElementById(contentId).classList.add('active');
+      });
+    });
+
+// STATISTICS CODE 
+    const tabButtons = document.querySelectorAll('.visitor-tab-button');
+    const visitorTable = document.getElementById('visitorTable').getElementsByTagName('tbody')[0];
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        fetchVisitors(button.getAttribute('data-route'), 'daily'); // Change interval if needed
+      });
+    });
+
+    function fetchVisitors(route, interval) {
+      fetch(`/visitor-stats/${route}/${interval}`)
+        .then(response => response.json())
+        .then(data => {
+          displayVisitors(data);
+          console.log(data)
+        })
+        .catch(error => {
+          console.error('Error fetching visitor data:', error);
+        });
+    }
+
+    function displayVisitors(visitors) {
+      visitorTable.innerHTML = '';
+
+      visitors.forEach(visitor => {
+        const row = `
+          <tr>
+            <td>${visitor.route}</td>
+            <td>${visitor.views}</td>
+            <td>${new Date(visitor.date).toLocaleString()}</td>
+          </tr>
+        `;
+        visitorTable.insertAdjacentHTML('beforeend', row);
+      });
+    }
+
+    // Initial fetch and display for the default tab
+    fetchVisitors('home', 'daily'); // Change interval if needed
+    } else {
+      const enteredPassword = prompt("Enter the password to access the data:");
+
+      if (enteredPassword !== password) {
+        alert("Incorrect password. Access denied.");
+        window.location.href = "index.html"; // Redirect to another page if password is incorrect
+      } else {
+        localStorage.setItem("loggedIn", "true");
+        window.location.reload();
+      }
+      
+    }
+
+    
+  </script>
+</body>
+</html>

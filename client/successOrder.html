@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta charset="utf-8">
+    <title>Order | HeldereGolf</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+<link href="img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@200;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+ <!-- Spinner Start -->
+ <div id="spinner"
+ class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+ <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+     <span class="sr-only">Loading...</span>
+ </div>
+</div>
+<!-- Spinner End -->
+
+
+<div class="cartSlide">
+
+ <div class="cartwrapper bg-white">
+     <div class="d-flex justify-content-between align-items-center mb-5 mt-3">
+         <h1>Cart</h1>
+         <img src="./img/close.png" class="close" alt="" onclick="Cart(false)" style="width: 25px;">
+     </div>
+         <div class="items Cartitems" style="max-height: 278px; overflow: scroll;">
+         </div>
+         <div class="total d-flex justify-content-between">
+             <p>Total</p>
+             <h2 ><span class="totalCartPrice"></span> PKR</p>
+         </div>
+         <a href="./checkout.html" class="submit btn btn-primary" style="border-radius: 0;">
+             Proceed to Checkout
+         </a>
+     </div>
+     </div>
+<!-- Navbar Start -->
+<div class=" bg-dark text-light text-center d-flex align-items-center justify-content-center" style="height: 40px;">
+ Enjoy Free Shipping All Over Pakistan!
+</div>
+<div class="container-fluid sticky-top" style="    background-color: white !important;">
+ <div class="container">
+     <nav class="navbar navbar-expand-lg navbar-light p-0">
+         <a href="index.html" class="navbar-brand">
+             <h2 class="text-white"><img src="./img/HG.png" style="width: 200px;" alt=""></h2>
+         </a>
+         <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+             data-bs-target="#navbarCollapse">
+             <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarCollapse">
+             <div class="navbar-nav mx-auto">
+                 <a href="/unstiched-collection" class="nav-item nav-link">Unstiched Collection </a>
+                 <a href="/stiched-collection" class="nav-item nav-link">Stiched Collection </a>
+                
+                 <a href="/return" class="nav-item nav-link">Return </a>
+                 <a href="/contact" class="nav-item nav-link">Contact</a>
+             </div>
+             
+         </div>
+         <div class="cartButton" onclick="Cart(true)">
+             <img style="width: 30px;" src="./img/cart.svg" alt="">
+             <span class="CartItemsQuantity">1</span>
+         </div>
+     </nav>
+ </div>
+</div>
+<!-- Navbar End -->
+
+
+    <!-- Hero Start -->
+    <div class="container-fluid  mt-5 mb-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="display-4  animated slideInRight"> <span class="fw-light text-dark">Order Placed </span>Successfully</h1>
+                    <p class=" mb-4 animated slideInRight">
+                        You can contact us if you have any queries or if you want to cancel, edit order details etc..</p>
+                    <a href="/" class="btn btn-dark py-2 px-4 me-3 animated slideInRight">Back to Home</a>
+                    <a href="/contact" class="btn btn-outline-dark py-2 px-4 animated slideInRight">Contact Us</a>
+                </div>
+                <div class="col-lg-6" style="    justify-content: center;
+                display: flex;">
+                    <!-- <img class="img-fluid animated pulse infinite" src="img/soapholder.png" alt=""> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+       <!-- Footer Start -->
+    <div class="container-fluid bg-white footer">
+        <div class="container py-5">
+            <div class="row g-5">
+                
+            
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                        <a href="index.html" class="navbar-brand">
+                        <img src="./img/HG.png" style="width: 200px;" alt="">
+                        </a>
+                    </div>
+                   <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; 2023 <a class="border-bottom" href="#">HeldereGolf</a>, All Right Reserved. powered by Codex
+
+                        <!-- /*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> -->
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        const Quantity = (e)=>{
+            const quantity = document.querySelector(".quantity")
+            const price = document.querySelector(".price")
+            quantity.innerHTML = e.target.value; 
+            price.innerHTML = 349*e.target.value
+        } 
+    </script>
+      <!-- CART FUNCTIONS  -->
+      <script>
+        const Cart = (value) => {
+           if (value) {
+
+               document.querySelector(".cartwrapper").classList.add("cartSlideActive")
+           } else {
+
+               document.querySelector(".cartwrapper").classList.remove("cartSlideActive")
+           }
+       }
+
+
+
+let totalCartPricenum = 0.0
+const CartItems = JSON.parse(localStorage.getItem('cart')) || [];
+for (let index = 0; index < CartItems.length; index++) {
+   const element = CartItems[index];
+   const totalItemPrice = element.price * element.quantity
+   totalCartPricenum += totalItemPrice
+
+}
+const totalCartPrice = document.querySelector(".totalCartPrice")
+totalCartPrice.innerHTML = totalCartPricenum
+const updateTotalCartPrice = (price) => {
+   totalCartPricenum += price
+   totalCartPrice.innerHTML = totalCartPricenum
+}
+
+
+let GetCartItem = JSON.parse(localStorage.getItem('cart')) || [];
+document.querySelector(".CartItemsQuantity").innerHTML = GetCartItem.length
+
+document.querySelector(".CartItemsQuantity").innerHTML = GetCartItem.length
+
+function getCartItems() {
+   if(GetCartItem.length == 0){
+       items.innerHTML = "There Are No Items In Cart"
+   }else{
+       items.innerHTML = ""
+   }
+   const CartItems = JSON.parse(localStorage.getItem('cart')) || [];
+   for (let index = 0; index < CartItems.length; index++) {
+
+       const element = CartItems[index];
+       const template = document.createElement("template")
+       template.innerHTML = `
+       <div class="item d-flex pb-3 mb-4" style="border-bottom: 1px solid #80808059">
+                       <img class="productimg" style="width: 50px;
+                       object-fit: contain; max-height: 150px; margin-right: 25px;" src="${element.img}" alt="">
+                       <div class="">
+                           <h2>${element.name}</h2>
+                           <p class="mb-0 btn btn-secondary text-white p-1 py-0">Medium</p>
+                           <p class="mb-0">${element.price} PKR</p>
+                           <div class="quantity d-flex align-items-center">
+                               <button onclick="QuantityCart('subt','cartQuantityValue${index}',${element.price},${element.id})">-</button>
+                               <p class="mb-0 cartQuantityValue${index}">${element.quantity}</p>
+                               <button onclick="QuantityCart('add','cartQuantityValue${index}',${element.price},${element.id})">+</button>
+                           </div>
+                       </div> 
+                       <img src="./img/trash-solid.svg" style="width: 25px; cursor: pointer; margin-left: auto;" alt="" onclick="deleteFromCart(${index})">
+                   </div>
+`
+       
+       items.append(template.content.firstElementChild)
+   }
+
+}
+
+function addToCart(item) {
+           
+   updateTotalCartPrice(item.price)
+   // Get the current cart items from local storage (if any)
+   let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+   // Add the new item to the cart
+   cartItems.push(item);
+
+   // Update the cart in local storage with the new item
+   localStorage.setItem('cart', JSON.stringify(cartItems));
+   // getCartItems()
+   GetCartItem = JSON.parse(localStorage.getItem('cart')) || [];
+           document.querySelector(".CartItemsQuantity").innerHTML = GetCartItem.length
+           getCartItems()
+}
+
+
+const items = document.querySelector(".Cartitems")
+
+
+getCartItems()
+
+
+const QuantityCart = (value, para, price, itemId) => {
+   let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+   const itemIndex = cartItems.findIndex(item => item.id === itemId);
+
+   const p = document.querySelector(`.${para}`)
+   if (value == "add") {
+       p.innerHTML = parseInt(p.innerHTML) + 1
+       totalCartPricenum +=price
+   totalCartPrice.innerHTML = totalCartPricenum
+
+       // If the item is found in the cart
+       if (itemIndex !== -1) {
+           // Increase the quantity of the item
+           cartItems[itemIndex].quantity += 1;
+
+           // Update the cart in local storage with the updated item quantity
+           localStorage.setItem('cart', JSON.stringify(cartItems));
+
+          
+       } else {
+           console.error('Item not found in cart.');
+       }
+
+   } else if (value == "subt") {
+       if (parseInt(p.innerHTML) > 1) {
+           p.innerHTML = parseInt(p.innerHTML) - 1
+           totalCartPricenum -=price
+   totalCartPrice.innerHTML = totalCartPricenum
+           if (itemIndex !== -1) {
+               // Increase the quantity of the item
+               cartItems[itemIndex].quantity -= 1;
+
+               // Update the cart in local storage with the updated item quantity
+               localStorage.setItem('cart', JSON.stringify(cartItems));
+
+             
+           } else {
+               console.error('Item not found in cart.');
+           }
+       } else {
+
+       }
+   }
+
+
+   
+}
+
+function deleteFromCart(itemIndex) {
+   
+   let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+   if (itemIndex >= 0 && itemIndex < cartItems.length) {
+       totalCartPricenum -= cartItems[itemIndex].quantity * cartItems[itemIndex].price
+totalCartPrice.innerHTML = totalCartPricenum
+
+       // Remove the item from the cart array
+       cartItems.splice(itemIndex, 1);
+
+       // Update the cart in local storage without the deleted item
+       localStorage.setItem('cart', JSON.stringify(cartItems));
+
+       
+       GetCartItem = JSON.parse(localStorage.getItem('cart')) || [];
+           document.querySelector(".CartItemsQuantity").innerHTML = GetCartItem.length
+       getCartItems()
+   } else {
+       console.error('Invalid item index provided.');
+   }
+
+}
+   </script>
+</body>
+
+</html>
