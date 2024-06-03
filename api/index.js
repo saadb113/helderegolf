@@ -40,9 +40,10 @@ const storage = multer.diskStorage({
 // const getpath = path.join(__dirname, "../client/successContact.html")
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+require('dotenv').config();
 const upload = multer({storage})
 // Connect to MongoDB Atlas
-mongoose.connect('mongodb+srv://saadb451:Saadbhaizindabaad1!@cluster0.vbcrt.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.vbcrt.mongodb.net/?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
